@@ -8,7 +8,7 @@
 	imports = [ 
 		./hardware-configuration.nix
 		./monitor-configuration.nix
-		#./claude.nixasd
+		#./claude.nix
 		
 	];
 
@@ -19,7 +19,7 @@
 		device = "nodev";
 		efiSupport = true;
 		useOSProber = true;
-		splashImage = ./pictures/lenovoboot.png;
+		splashImage = ./resources/lenovoboot.png;
 		#timeout = 0;
 
 	};
