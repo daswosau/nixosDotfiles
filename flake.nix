@@ -28,8 +28,6 @@
         wsf.nixosModules.default
         { programs.wsf.enable = true; }
 
-        ./hardware-configuration.nix
-        ./monitor-configuration.nix
         ./configuration.nix
       ];
     };
