@@ -8,6 +8,7 @@
 	imports = [ 
 		./hardwareConfig/storage.nix
 		./hardwareConfig/monitor.nix
+		./packages.nix
 		
 	];
 
@@ -35,17 +36,11 @@
 
   ##		NETWORKING AND LOCALE
 
-  # Configure network connections interactively with nmcli or nmtui.
 	networking.hostName = "dwsthinkpad";
 	networking.networkmanager.enable = true;
 
  	time.timeZone = "Europe/Budapest";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
 	i18n.defaultLocale = "hu_HU.UTF-8";
 	i18n.extraLocaleSettings = {
 		LC_ADDRESS = "hu_HU.UTF-8";
@@ -63,22 +58,18 @@
 
   ##		DISPLAY MANAGEMENT
 
-  # Enable the X11 windowing system.
  	services.xserver.enable = true;
 	services.displayManager.gdm.enable = true;
 	services.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
  	services.xserver.xkb.layout = "hu";
 	services.xserver.xkb.variant = "";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+	#services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+	services.printing.enable = false;
 
   ##		SOUND MANAGEMENT
 
-  # Enable sound.
  	services.pulseaudio.enable = false;
  	#services.rtkit.enable = true;
  	services.pipewire = {
@@ -88,12 +79,10 @@
 		alsa.support32Bit = true;
 	};
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+	services.libinput.enable = true;
 
   ##		USERS
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
  	users.users.daswosau = {
  		isNormalUser = true;
  		extraGroups = [ "wheel" "networkmanager" "video" ]; # Enable ‘sudo’ for the user
@@ -136,123 +125,7 @@
 
   ##		PACKAGES
 
-	nixpkgs.config.allowUnfree = true;
-	#services.flatpak.enable = true;
-
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-	environment.systemPackages = with pkgs; [ #### NIXPKGS PACKAGES
-		#	dev tools and deps
- 		wget
-		curl
-		unzip
-		unrar
-		ripgrep
-		fd
-		uv
-		file
-		git
-		gcc
-		gnumake
-		gdb
-		openjdk21
-		scenebuilder
-		maven
-		libGL
-		docker
-		glibc
-		openssl
-		nodejs
-		pnpm
-		pciutils
-		xrandr
-		meson
-		ninja
-		pkgconf
-		cava
-		zenity
-		rclone
-		wine
-		wine64
-		wineWow64Packages.full
-		gnome-themes-extra
-		corefonts
-		vista-fonts
-		python3
-
-		#	simple tools
-		neovim
-		htop
-		timeshift
-		gparted
-		gnome-tweaks
-		fish
-		fastfetch
-		winetricks
-		protontricks
-			
-		#	regular apps
-		brave
-		firefox
-		discord
-		spotify
-		steam
-		vlc
-		vscode
-		jetbrains.idea
-		pinta
-		krita
-		obsidian
-		upscayl
-		onlyoffice-desktopeditors
-		lutris
-		qbittorrent
-		obs-studio
-		mission-center
-		signal-desktop
-		session-desktop
-		strawberry
-		foliate
-		audacity
-		nicotine-plus
-		claude-desktop
-		github-desktop
-
- 	];
-
-	programs.steam = {
-		enable = true;
-		extraCompatPackages = with pkgs; [
-			proton-ge-bin
-		];
-	};
-
-	programs.java = {
-		enable = true;
-		package = (pkgs.jdk21.override { enableJavaFX = true; });
-	};
-
-	programs.dconf.profiles.user.databases = [{#### GNOME PACKAGES
-		settings = {
-			"org/gnome/shell" = {
-				disable-user-extensions = false;
-				enabled-extensions = [
-				"middle-click-expose@bitboxer.codeberg.org"
-				"middleclickclose@paolo.tranquilli.gmail.com"
-				"right-click-next@derVedro"
-				"scroll-workspaces@gfxmonk.net"
-				"dynamic-music-pill@andbal"
-				"preserve-battery-health@marcosdalvarez.org"
-				"Bluetooth-Battery-Meter@maniacx.github.com"
-				"hibernate-power-menu@arnakazim"
-				#"places-menu@gnome-shell-extensions.gcampax.github.com"
-				];
-			};
-		};
-	}];
-
-	programs.fish.enable = true;
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	
 
   ##		FILESYSTEMS
 	
