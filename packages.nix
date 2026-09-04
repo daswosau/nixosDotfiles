@@ -117,9 +117,10 @@
 
     programs.fish = {
         enable = true;
-    }
+    };
 
 }
+
 	
 
 	
