@@ -6,9 +6,8 @@
 
 {
 	imports = [ 
-		./hardware-configuration.nix
-		./monitor-configuration.nix
-		#./claude.nix
+		./hardwareConfig/storage.nix
+		./hardwareConfig/monitor.nix
 		
 	];
 
