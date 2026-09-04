@@ -20,7 +20,7 @@
 		efiSupport = true;
 		useOSProber = true;
 		splashImage = ./resources/lenovoboot.png;
-		#timeout = 0;
+		timeout = 3;
 
 	};
 	boot.loader.efi.canTouchEfiVariables = true;
@@ -110,7 +110,7 @@
 			offload.enable = true;
 			offload.enableOffloadCmd = true;
 			intelBusId = "PCI:0:2:0";
-			nvidiaBusId = "PCI:1:0:0"; # REPLACE WITH BUS IDs
+			nvidiaBusId = "PCI:1:0:0";
 		};
 	};
 
@@ -122,10 +122,6 @@
 		sudo.fprintAuth = false;        
 		polkit-1.fprintAuth = false;     
 	};
-
-  ##		PACKAGES
-
-	
 
   ##		FILESYSTEMS
 	
