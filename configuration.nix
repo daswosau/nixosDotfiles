@@ -8,7 +8,7 @@
 	imports = [ 
 		./hardware-configuration.nix
 		./monitor-configuration.nix
-		#./claude.nix
+		#./claude.nixasd
 		
 	];
 
