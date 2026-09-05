@@ -81,6 +81,7 @@
 		nicotine-plus
 		claude-desktop
 		github-desktop
+		davinci-resolve
 
  	];
 
