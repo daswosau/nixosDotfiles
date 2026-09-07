@@ -54,6 +54,12 @@
 		fastfetch
 		winetricks
 		protontricks
+		qemu
+		qemu-kvm
+		qemu-utils
+		qemu-guest-agent
+		virt-manager
+		virt-viewern
 			
 		#                  APPLICATIONS
 		brave
