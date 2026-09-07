@@ -55,7 +55,7 @@
 		winetricks
 		protontricks
 		qemu
-		qemu-kvm
+		qemu_kvm
 		qemu-utils
 		qemu-guest-agent
 		virt-manager
