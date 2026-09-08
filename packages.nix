@@ -57,9 +57,6 @@
 		qemu
 		qemu_kvm
 		qemu-utils
-		qemu-guest-agent
-		virt-manager
-		virt-viewern
 			
 		#                  APPLICATIONS
 		brave
@@ -88,6 +85,7 @@
 		claude-desktop
 		github-desktop
 		davinci-resolve
+		postman
 
  	];
 
