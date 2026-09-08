@@ -20,7 +20,7 @@
   outputs = { self, nixpkgs, claude-desktop-linux, wsf }: {
     nixosConfigurations.dwsthinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ # input modules
+      modules = [ ./configuration.nix # input modules 
 
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
@@ -37,10 +37,6 @@
             claude-desktop = claude-desktop-linux.packages.x86_64-linux.default;
           })
         ];}
-
-      ];
-      modules = [
-        ./configuration.nix
       ];
     };
   };
