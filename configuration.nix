@@ -85,7 +85,7 @@
 
  	users.users.daswosau = {
  		isNormalUser = true;
- 		extraGroups = [ "wheel" "networkmanager" "video" ]; # Enable ‘sudo’ for the user
+ 		extraGroups = [ "wheel" "networkmanager" "video" "libvirtd"]; # Enable ‘sudo’ for the user
 		shell = pkgs.fish;
 	};
 

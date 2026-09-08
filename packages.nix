@@ -54,6 +54,11 @@
 		fastfetch
 		winetricks
 		protontricks
+		qemu
+		qemu_kvm
+		qemu-utils
+		virt-manager
+		virtiofsd
 			
 		#                  APPLICATIONS
 		brave
@@ -82,8 +87,28 @@
 		claude-desktop
 		github-desktop
 		davinci-resolve
+		postman
 
  	];
+
+	programs = {
+		steam = {
+			enable = true;
+			extraCompatPackages = with pkgs; [
+				proton-ge-bin
+			];
+		};
+		java = {
+			enable = true;
+			package = (pkgs.jdk21.override { enableJavaFX = true; });
+		};
+		fish = {
+			enable = true;
+		};
+		virt-manager = {
+			enable = true;
+		};
+	};
 
     programs.dconf.profiles.user.databases = [{
 		settings = {
@@ -104,21 +129,10 @@
 		};
 	}];
 
-	programs.steam = {
-		enable = true;
-		extraCompatPackages = with pkgs; [
-			proton-ge-bin
-		];
+	virtualisation = {
+		libvirtd.enable = true;
+		spiceUSBRedirection.enable = true;
 	};
-
-	programs.java = {
-		enable = true;
-		package = (pkgs.jdk21.override { enableJavaFX = true; });
-	};
-
-    programs.fish = {
-        enable = true;
-    };
 
 }
 
