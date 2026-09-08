@@ -3,7 +3,7 @@
 {
     home.username = "daswosau";
     home.homeDirectory = "/home/daswosau";
-    home.stateVersion = "25.05";
+    home.stateVersion = "26.05";
     home.enableNixpkgsReleaseCheck = false;
     programs.home-manager.enable = true;
 
