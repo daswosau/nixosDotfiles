@@ -32,11 +32,11 @@
           programs.wsf.enable = true; 
         }
 
-        nixpkgs.overlays = [
+        {nixpkgs.overlays = [
           (final: prev: {
             claude-desktop = claude-desktop-linux.packages.x86_64-linux.default;
           })
-        ];
+        ];};
 
       ];
       modules = [
