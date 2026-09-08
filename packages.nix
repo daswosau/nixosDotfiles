@@ -57,6 +57,8 @@
 		qemu
 		qemu_kvm
 		qemu-utils
+		virt-manager
+		virtiofsd
 			
 		#                  APPLICATIONS
 		brave
