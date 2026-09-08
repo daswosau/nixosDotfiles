@@ -26,11 +26,11 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.yourusername = import ./home.nix;
-        };
+        }
 
         wsf.nixosModules.default { 
           programs.wsf.enable = true; 
-        };
+        }
 
         {nixpkgs.overlays = [
           (final: prev: {
