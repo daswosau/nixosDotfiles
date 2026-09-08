@@ -9,20 +9,13 @@
 		
         #               DEVELOPMENT TOOLS, DEPENDENCIES AND LIBRARIES
  		wget curl
-		unzip
-		unrar
-		ripgrep
+		unzip unrar ripgrep
 		fd
 		uv
 		file
 		git
-		gcc
-		gnumake
-		gdb
-		openjdk21
-		scenebuilder
-		maven
-		libGL
+		gcc gnumake gdb
+		openjdk21 scenebuilder maven libGL
 		docker
 		glibc
 		openssl
