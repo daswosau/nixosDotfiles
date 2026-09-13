@@ -9,7 +9,9 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
     # claude desktop
-    claude-desktop-linux.url = "github:k3d3/claude-desktop-linux-flake";
+    claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
+    claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
+    claude-desktop.inputs.flake-utils.follows = "flake-utils";
     # wayland scroll factor
     wsf = {
       url = "github:daniel-g-carrasco/wayland-scroll-factor";
