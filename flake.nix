@@ -27,6 +27,7 @@
   outputs = { self, nixpkgs, claude-desktop, wsf, flake-utils }: {
     nixosConfigurations.dwsthinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit claude-desktop; };
       modules = [ ./configuration.nix # input modules 
 
         #home-manager.nixosModules.home-manager {
