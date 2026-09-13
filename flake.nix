@@ -24,7 +24,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, claude-desktop, wsf }: {
+  outputs = { self, nixpkgs, claude-desktop, wsf, flake-utils }: {
     nixosConfigurations.dwsthinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [ ./configuration.nix # input modules 

@@ -1,9 +1,13 @@
 {
   "nodes": {
-    "claude-desktop-linux": {
+    "claude-desktop": {
       "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1764098187,
@@ -57,22 +61,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1749174413,
-        "narHash": "sha256-urN9UMK5cd1dzhR+Lx0xHeTgBp2MatA5+6g9JaxjuQs=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "6ad174a6dc07c7742fc64005265addf87ad08615",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1787962033,
         "narHash": "sha256-u6z9VTZA4Kf3RkHQo9sQI7NI4Ei/uiU9vrMqOiwWP1Y=",
         "owner": "nixos",
@@ -89,8 +77,9 @@
     },
     "root": {
       "inputs": {
-        "claude-desktop-linux": "claude-desktop-linux",
-        "nixpkgs": "nixpkgs_2",
+        "claude-desktop": "claude-desktop",
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
         "wsf": "wsf"
       }
     },
