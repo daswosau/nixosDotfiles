@@ -24,6 +24,7 @@
 		pciutils
 		xrandr
 		meson
+		pkg-config
 		ninja
 		pkgconf
 		cava
