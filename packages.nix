@@ -77,7 +77,7 @@
 		foliate
 		audacity
 		nicotine-plus
-		claude-desktop-with-fhs
+		claude-desktop.packages.${system}.claude-desktop-with-fhs
 		github-desktop
 		davinci-resolve
 		postman
