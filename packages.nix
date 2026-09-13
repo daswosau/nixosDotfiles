@@ -39,6 +39,7 @@
 
 		#                  TOOLS AND UTILITIES
 		neovim
+		nautilus-python
 		htop
 		timeshift
 		gparted
