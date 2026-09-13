@@ -77,7 +77,7 @@
 		foliate
 		audacity
 		nicotine-plus
-		(inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs.override {
+		(claude-desktop.packages.${system}.claude-desktop-with-fhs.override {
 			nodePackages = { inherit (pkgs) asar; };
 		})
 		github-desktop
