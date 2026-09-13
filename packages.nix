@@ -19,7 +19,7 @@
 		docker
 		glibc
 		openssl
-		nodejs
+		#nodejs
 		pnpm
 		pciutils
 		xrandr
