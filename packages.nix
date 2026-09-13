@@ -77,7 +77,9 @@
 		foliate
 		audacity
 		nicotine-plus
-		claude-desktop.packages.${system}.claude-desktop-with-fhs
+		(inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs.override {
+			nodePackages = { inherit (pkgs) asar; };
+		})
 		github-desktop
 		davinci-resolve
 		postman
