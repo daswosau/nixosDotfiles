@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, claude-desktop... }:
 
 {
     nixpkgs.config.allowUnfree = true;
