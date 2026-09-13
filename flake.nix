@@ -34,11 +34,7 @@
           programs.wsf.enable = true; 
         }
 
-        {nixpkgs.overlays = [
-          (final: prev: {
-            claude-desktop = claude-desktop-linux.packages.x86_64-linux.default;
-          })
-        ];}
+        inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
       ];
     };
   };
