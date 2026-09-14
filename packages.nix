@@ -14,7 +14,7 @@
 		uv
 		file
 		git
-		gcc gnumake gdb
+		gcc gnumake gdb cmake
 		openjdk21 scenebuilder maven libGL
 		docker
 		glibc
