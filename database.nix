@@ -22,9 +22,6 @@
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
-    initialScript = pkgs.writeText "mariadb-init" ''
-      ALTER USER 'root'@'localhost' IDENTIFIED BY '';
-    '';
     ensureUsers = [
       {
         name = "phpmyadmin";
