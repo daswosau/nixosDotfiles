@@ -39,9 +39,7 @@
   services.phpmyadmin = {
     enable = true;
     hostName = "localhost";
-    nginx = null;  # explicitly use Apache, not nginx
   };
 
-  # Optional: allow HTTP/HTTPS traffic
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 }
