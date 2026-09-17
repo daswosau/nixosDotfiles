@@ -52,39 +52,23 @@
 		qemu
 		qemu_kvm
 		qemu-utils
-		virt-manager
 		virtiofsd
+		ollama
 			
 		#                  APPLICATIONS
-		brave
-		firefox
+		brave firefox
 		discord
-		spotify
-		steam
-		vlc
-		vscode
-		jetbrains.idea
-		pinta
-		krita
-		obsidian
-		upscayl
-		onlyoffice-desktopeditors
-		lutris
-		qbittorrent
-		obs-studio
+		spotify vlc
+		steam lutris
+		vscode jetbrains.idea postman alpaca github-desktop virt-manager
+		pinta krita upscayl davinci-resolve audacity obs-studio 
+		onlyoffice-desktopeditors obsidian foliate
+		qbittorrent nicotine-plus
 		mission-center
-		signal-desktop
-		session-desktop
-		strawberry
-		foliate
-		audacity
-		nicotine-plus
+		
 		(claude-desktop.packages.${system}.claude-desktop.override {
 			nodePackages = { inherit (pkgs) asar; };
 		})
-		github-desktop
-		davinci-resolve
-		postman
 
  	];
 
