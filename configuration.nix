@@ -9,7 +9,7 @@
 		./hardwareConfig/storage.nix
 		./hardwareConfig/monitor.nix
 		./packages.nix
-		./database.nix
+		#./database.nix
 		
 	];
 
