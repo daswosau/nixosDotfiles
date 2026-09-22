@@ -34,7 +34,7 @@
 		wine64
 		wineWow64Packages.full
 		gnome-themes-extra
-		corefonts
+		corefonts lato
 		vista-fonts
 		python3
 
@@ -58,7 +58,7 @@
 		#                  APPLICATIONS
 		brave firefox
 		discord
-		spotify vlc
+		spotify vlc quodlibet strawberry dopamine
 		steam lutris
 		vscode jetbrains.idea postman alpaca github-desktop virt-manager
 		pinta krita upscayl davinci-resolve audacity obs-studio 
@@ -86,6 +86,9 @@
 			extraCompatPackages = with pkgs; [
 				proton-ge-bin
 			];
+		};
+		localsend = {
+			enable = true;
 		};
 		java = {
 			enable = true;

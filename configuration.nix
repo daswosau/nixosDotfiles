@@ -149,6 +149,21 @@
 		coreOffset = -110;
 	};
 
+	fonts.packages = with pkgs; [
+		lato
+		corefonts
+		vista-fonts
+	];
+
+	services.mysql = {
+		enable = true;
+		package = pkgs.mysql84; # or pkgs.mariadb
+	};
+
+	environment.sessionVariables = {
+		NIXOS_OZONE_WL = "1";
+	};
+
 
 	
 
