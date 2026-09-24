@@ -36,6 +36,7 @@
 		gnome-themes-extra
 		corefonts lato
 		vista-fonts
+		adwaita-icon-theme
 		python3
 
 		#                  TOOLS AND UTILITIES
@@ -58,13 +59,15 @@
 		#                  APPLICATIONS
 		brave firefox
 		discord
-		spotify vlc quodlibet strawberry dopamine
-		steam lutris
+		spotify vlc
+		lutris
 		vscode jetbrains.idea postman alpaca github-desktop virt-manager
 		pinta krita upscayl davinci-resolve audacity obs-studio 
 		onlyoffice-desktopeditors obsidian foliate
 		qbittorrent nicotine-plus
 		mission-center
+
+		stremio-linux-shell
 		
 		(claude-desktop.packages.${system}.claude-desktop.override {
 			nodePackages = { inherit (pkgs) asar; };
@@ -75,7 +78,6 @@
 	programs.nix-ld.enable = true;
 
 	programs = {
-
 		nix-ld.libraries = with pkgs; [
 			# Add any missing dynamic libraries for unpackaged programs
 			# here, NOT in environment.systemPackages

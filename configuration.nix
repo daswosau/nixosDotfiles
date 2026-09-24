@@ -160,9 +160,9 @@
 		package = pkgs.mysql84; # or pkgs.mariadb
 	};
 
-	environment.sessionVariables = {
-		NIXOS_OZONE_WL = "1";
-	};
+	#environment.sessionVariables = {
+	#	NIXOS_OZONE_WL = "1";
+	#};
 
 
 	
