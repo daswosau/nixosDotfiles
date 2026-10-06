@@ -38,10 +38,19 @@
 		vista-fonts
 		adwaita-icon-theme
 		python3
+		gobject-introspection
+  		gtk3
+		
+		ffmpegthumbnailer
 
 		#                  TOOLS AND UTILITIES
 		neovim
 		nautilus-python
+		(python3.withPackages (ps: with ps; [
+			pygobject3
+			pillow
+			mutagen
+		]))
 		htop
 		timeshift
 		gparted
@@ -59,13 +68,14 @@
 		#                  APPLICATIONS
 		brave firefox
 		discord
-		spotify vlc
+		spotify vlc amberol rhythmbox
 		lutris
-		vscode jetbrains.idea postman alpaca github-desktop virt-manager
-		pinta krita upscayl davinci-resolve audacity obs-studio 
+		vscode jetbrains.idea postman alpaca github-desktop virt-manager beekeeper-studio
+		pinta krita upscayl davinci-resolve audacity obs-studio subtitleedit
 		onlyoffice-desktopeditors obsidian foliate
 		qbittorrent nicotine-plus
 		mission-center
+		rimsort
 
 		stremio-linux-shell
 		
