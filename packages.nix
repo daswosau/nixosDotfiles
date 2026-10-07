@@ -68,12 +68,12 @@
 		#                  APPLICATIONS
 		brave firefox
 		discord
-		spotify vlc amberol rhythmbox
+		spotify vlc amberol rhythmbox puddletag
 		lutris
 		vscode jetbrains.idea postman alpaca github-desktop virt-manager beekeeper-studio
 		pinta krita upscayl davinci-resolve audacity obs-studio subtitleedit
 		onlyoffice-desktopeditors obsidian foliate
-		qbittorrent nicotine-plus
+		qbittorrent nicotine-plus syncthing
 		mission-center
 		rimsort
 
