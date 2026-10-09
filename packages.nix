@@ -68,16 +68,24 @@
 		#                  APPLICATIONS
 		brave firefox
 		discord
-		spotify vlc amberol rhythmbox puddletag
-		lutris
+		spotify vlc puddletag
+		lutris steam-run
 		vscode jetbrains.idea postman alpaca github-desktop virt-manager beekeeper-studio
 		pinta krita upscayl davinci-resolve audacity obs-studio subtitleedit
 		onlyoffice-desktopeditors obsidian foliate
 		qbittorrent nicotine-plus syncthing
 		mission-center
-		rimsort
 
-		stremio-linux-shell
+		#				  WRAPPED APPLICATIONS
+		(symlinkJoin {
+			name = "rhythmbox-wrapped";
+			paths = [ rhythmbox ];
+			buildInputs = [ makeWrapper ];
+			postBuild = ''
+			wrapProgram $out/bin/rhythmbox \
+				--prefix PYTHONPATH : "${python3.withPackages (ps: with ps; [ pygobject3 pillow mutagen ])}/${python3.sitePackages}"
+			'';
+		})
 		
 		(claude-desktop.packages.${system}.claude-desktop.override {
 			nodePackages = { inherit (pkgs) asar; };
