@@ -22,12 +22,14 @@
       url = "github:daniel-g-carrasco/wayland-scroll-factor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # rimsort
+    rimsort.url = "github:RimSort/RimSort";
   };
 
-  outputs = { self, nixpkgs, claude-desktop, wsf, flake-utils }: {
+  outputs = { self, nixpkgs, claude-desktop, wsf, flake-utils, rimsort }: {
     nixosConfigurations.dwsthinkpad = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit claude-desktop; };
+      specialArgs = { inherit claude-desktop rimsort; };
       modules = [ ./configuration.nix # input modules 
 
         #home-manager.nixosModules.home-manager {

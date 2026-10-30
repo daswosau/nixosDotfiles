@@ -7,6 +7,7 @@
 {
 	imports = [ 
 		./hardwareConfig/storage.nix
+		./packages/extAppIndicatorQuickSetting.nix
 		./packages.nix
 		#./database.nix
 		
@@ -165,6 +166,11 @@
 
 	environment.sessionVariables = {
 		NIXOS_OZONE_WL = "1";
+	};
+
+	xdg.portal = {
+		enable = true;
+		extraPortals = [ pkgs.xdg-desktop-portal-gnome ]; # or gtk, depending on your environment
 	};
 
 

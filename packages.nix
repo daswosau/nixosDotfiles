@@ -1,4 +1,4 @@
-{ config, lib, pkgs, claude-desktop, ... }:
+{ config, lib, pkgs, claude-desktop, rimsort, ... }:
 
 {
     nixpkgs.config.allowUnfree = true;
@@ -40,7 +40,7 @@
 		python3
 		gobject-introspection
   		gtk3
-		
+		gettext
 		ffmpegthumbnailer
 
 		#                  TOOLS AND UTILITIES
@@ -64,17 +64,18 @@
 		qemu-utils
 		virtiofsd
 		ollama
+		avahi
 			
 		#                  APPLICATIONS
 		brave firefox
 		discord
-		spotify vlc puddletag
-		lutris steam-run
+		vlc puddletag
+		lutris steam-run steamcmd
 		vscode jetbrains.idea postman alpaca github-desktop virt-manager beekeeper-studio
 		pinta krita upscayl davinci-resolve audacity obs-studio subtitleedit
 		onlyoffice-desktopeditors obsidian foliate
 		qbittorrent nicotine-plus syncthing
-		mission-center
+		mission-center gsmartcontrol
 
 		#				  WRAPPED APPLICATIONS
 		(symlinkJoin {
@@ -90,6 +91,14 @@
 		(claude-desktop.packages.${system}.claude-desktop.override {
 			nodePackages = { inherit (pkgs) asar; };
 		})
+
+		(pkgs.spotify.overrideAttrs (oldAttrs: {
+			postInstall = (oldAttrs.postInstall or "") + ''
+			wrapProgram $out/bin/spotify --set NIXOS_OZONE_WL "0"
+			'';
+		}))
+
+		rimsort.packages.${pkgs.system}.default
 
  	];
 
@@ -128,14 +137,17 @@
 				disable-user-extensions = false;
 				enabled-extensions = [
 				"middle-click-expose@bitboxer.codeberg.org"
-				"middleclickclose@paolo.tranquilli.gmail.com"
-				"right-click-next@derVedro"
 				"scroll-workspaces@gfxmonk.net"
 				"dynamic-music-pill@andbal"
 				"preserve-battery-health@marcosdalvarez.org"
 				"Bluetooth-Battery-Meter@maniacx.github.com"
+				"middleclickclose@paolo.tranquilli.gmail.com"
+				"Hide_Activities@shay.shayel.org"
+				"touchpad-speed-control@ritesh"
+				"caffeine@patapon.info"
 				"hibernate-power-menu@arnakazim"
-				#"places-menu@gnome-shell-extensions.gcampax.github.com"
+				"active-app-indicator@morhenac"
+				"appindicatorsupport@rgcjonas.gmail.com"
 				];
 			};
 		};
@@ -145,6 +157,8 @@
 		libvirtd.enable = true;
 		spiceUSBRedirection.enable = true;
 	};
+
+	
 
 }
 
