@@ -8,7 +8,6 @@
 	imports = [ 
 		./hardwareConfig/storage.nix
 		./packages.nix
-		#./database.nix
 		
 	];
 

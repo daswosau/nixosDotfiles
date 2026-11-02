@@ -11,7 +11,6 @@
         enable = true;
         shellAliases = {
 
-            rebuild = "nix-make";
             nix-make = "sudo nixos-rebuild switch --flake ~/Scripts/NixOS/#dwsthinkpad";
             nix-edit = "code -n ~/Scripts/NixOS";
 
