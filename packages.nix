@@ -42,6 +42,7 @@
   		gtk3
 		gettext
 		ffmpegthumbnailer
+		glib
 
 		#                  TOOLS AND UTILITIES
 		neovim
@@ -148,6 +149,7 @@
 				"hibernate-power-menu@arnakazim"
 				"active-app-indicator@morhenac"
 				"appindicatorsupport@rgcjonas.gmail.com"
+				"appindicator-quicksetting@vazark.github.io"
 				];
 			};
 		};

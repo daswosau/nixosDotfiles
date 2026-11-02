@@ -7,7 +7,6 @@
 {
 	imports = [ 
 		./hardwareConfig/storage.nix
-		./packages/extAppIndicatorQuickSetting.nix
 		./packages.nix
 		#./database.nix
 		
