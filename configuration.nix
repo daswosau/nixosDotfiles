@@ -171,6 +171,22 @@
 		extraPortals = [ pkgs.xdg-desktop-portal-gnome ]; # or gtk, depending on your environment
 	};
 
+	services.vsftpd = {
+		enable = true;
+		localUsers = true;      # Allow local system users to log in
+		writeEnable = true;     # Allow file upload/modification
+		# Optional: configure passive mode port ranges
+		extraConfig = ''
+		pasv_min_port=30000
+		pasv_max_port=31000
+		'';
+	};
+
+	networking.firewall.allowedTCPPorts = [ 21 ];
+	networking.firewall.allowedTCPPortRanges = [
+		{ from = 30000; to = 31000; }
+	];
+
 
 	
 
