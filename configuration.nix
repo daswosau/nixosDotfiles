@@ -41,17 +41,10 @@
  	time.timeZone = "Europe/Budapest";
 
 	i18n.defaultLocale = "hu_HU.UTF-8";
-	i18n.extraLocaleSettings = {
-		LC_ADDRESS = "hu_HU.UTF-8";
-		LC_IDENTIFICATION = "hu_HU.UTF-8";
-		LC_MEASUREMENT = "hu_HU.UTF-8";
-		LC_MONETARY = "hu_HU.UTF-8";
-		LC_NAME = "hu_HU.UTF-8";
-		LC_NUMERIC = "hu_HU.UTF-8";
-		LC_PAPER = "hu_HU.UTF-8";
-		LC_TELEPHONE = "hu_HU.UTF-8";
-		LC_TIME = "hu_HU.UTF-8";
-	};
+	i18n.extraLocaleSettings = lib.genAttrs [
+	"LC_ADDRESS" "LC_IDENTIFICATION" "LC_MEASUREMENT" "LC_MONETARY"
+	"LC_NAME" "LC_NUMERIC" "LC_PAPER" "LC_TELEPHONE" "LC_TIME"
+	] (_: config.i18n.defaultLocale);
 
 	console.keyMap = "hu";
 
@@ -122,23 +115,15 @@
 		polkit-1.fprintAuth = false;     
 	};
 
-  ##		FILESYSTEMS
+  ##		FILL-UP COUNTER
 	
-	environment.etc."crypttab".text = ''
-		storage  /dev/disk/by-uuid/c05798f8-bdf1-4405-8532-87119d65e2f6  -  luks,discard,nofail,tpm2-device=auto,x-systemd.device-timeout=90
-	'';
-
-	fileSystems."/home/daswosau/Games" = {
-		device = "/dev/disk/by-uuid/1b023262-091d-44fa-be82-b31db63d18d1";
-		fsType = "ext4";
-		options = [ "defaults" "nofail" ];
+	nix.gc = {
+	automatic = true;
+	dates = "weekly";
+	options = "--delete-older-than 14d";
 	};
-
-	fileSystems."/home/daswosau/Storage" = {
-		device = "/dev/mapper/storage";
-		fsType = "ext4";
-		options = [ "defaults" "nofail" ];
-	};
+	nix.optimise.automatic = true;
+	boot.loader.grub.configurationLimit = 10;
 
   ##		ETC
 
@@ -147,11 +132,7 @@
 		coreOffset = -110;
 	};
 
-	fonts.packages = with pkgs; [
-		lato
-		corefonts
-		vista-fonts
-	];
+	
 
 	services.mysql = {
 		enable = true;

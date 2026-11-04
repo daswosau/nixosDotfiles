@@ -24,25 +24,21 @@
 		pciutils
 		xrandr
 		meson
-		pkg-config
 		ninja
 		pkgconf
 		cava
 		zenity
 		rclone
-		wine
-		wine64
 		wineWow64Packages.full
 		gnome-themes-extra
-		corefonts lato
-		vista-fonts
+
 		adwaita-icon-theme
-		python3
 		gobject-introspection
   		gtk3
 		gettext
 		ffmpegthumbnailer
 		glib
+		ftp
 
 		#                  TOOLS AND UTILITIES
 		neovim
@@ -56,7 +52,6 @@
 		timeshift
 		gparted
 		gnome-tweaks
-		fish
 		fastfetch
 		winetricks
 		protontricks
@@ -79,17 +74,7 @@
 		mission-center gsmartcontrol
 
 		#				  WRAPPED APPLICATIONS
-		(symlinkJoin {
-			name = "rhythmbox-wrapped";
-			paths = [ rhythmbox ];
-			buildInputs = [ makeWrapper ];
-			postBuild = ''
-			wrapProgram $out/bin/rhythmbox \
-				--prefix PYTHONPATH : "${python3.withPackages (ps: with ps; [ pygobject3 pillow mutagen ])}/${python3.sitePackages}"
-			'';
-		})
-		
-		(claude-desktop.packages.${system}.claude-desktop.override {
+		(claude-desktop.packages.${stdenv.hostPlatform.system}.claude-desktop.override {
 			nodePackages = { inherit (pkgs) asar; };
 		})
 
@@ -99,13 +84,13 @@
 			'';
 		}))
 
-		rimsort.packages.${pkgs.system}.default
+		rimsort.packages.${pkgs.stdenv.hostPlatform.system}.default
 
  	];
 
-	programs.nix-ld.enable = true;
 
 	programs = {
+		nix-ld.enable = true;
 		nix-ld.libraries = with pkgs; [
 			# Add any missing dynamic libraries for unpackaged programs
 			# here, NOT in environment.systemPackages
@@ -154,6 +139,12 @@
 			};
 		};
 	}];
+
+	fonts.packages = with pkgs; [
+		lato
+		corefonts
+		vista-fonts
+	];
 
 	virtualisation = {
 		libvirtd.enable = true;

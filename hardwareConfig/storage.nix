@@ -35,4 +35,20 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  environment.etc."crypttab".text = ''
+		storage  /dev/disk/by-uuid/c05798f8-bdf1-4405-8532-87119d65e2f6  -  luks,discard,nofail,tpm2-device=auto,x-systemd.device-timeout=90
+	'';
+
+	fileSystems."/home/daswosau/Games" = {
+		device = "/dev/disk/by-uuid/1b023262-091d-44fa-be82-b31db63d18d1";
+		fsType = "ext4";
+		options = [ "defaults" "nofail" ];
+	};
+
+	fileSystems."/home/daswosau/Storage" = {
+		device = "/dev/mapper/storage";
+		fsType = "ext4";
+		options = [ "defaults" "nofail" ];
+	};
 }
